@@ -1,6 +1,6 @@
 from itertools import combinations
 
-#"n" is the bit length of "x" and "u" vector
+#"n" is the bit length of both "x" and "u" vector
 n=4
 
 #define the input multiset "X"
@@ -19,7 +19,6 @@ def xi_ui(xi,ui):
     elif xi=='0' and ui=='1':
         return 0
 
-
 #this function is when all bits of X are selected 
 #the first example table in division property paper
 def pi_u_all(x,u):
@@ -29,10 +28,8 @@ def pi_u_all(x,u):
     return r
 
 selected_bits_in_x = 4
-
 indexes=[i for i in range(n)]
 comb=combinations(indexes,selected_bits_in_x)
-
 #the following function is used when p, (p<n) number of bits are used of x vector of the Multiset
 def pi_u_sel_bits(x,u,sel_bits):
     r=1
@@ -43,12 +40,13 @@ def pi_u_sel_bits(x,u,sel_bits):
 for selected_bits in comb:
     print "selected combination is",
     print selected_bits
+    print"u|wt(u)"
     for u_dec in range(2**n):
         sum=0
         u_bin='{0:04b}'.format(u_dec)
-        print '%d :  '%u_bin.count('1'),
+        print "{0}| {1} :  ".format(u_dec,u_bin.count('1')),
         for x in X:
             val=pi_u_sel_bits(x,u_bin,selected_bits)
             sum=sum+val
             print val,
-        print '---> %d \n'%(sum),
+        print '---> %d \n'%(sum%2),
