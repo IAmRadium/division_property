@@ -1,6 +1,6 @@
 from itertools import combinations
 
-#"n" is the bit length of bot "x" and "u" vector
+#"n"  is the bit length of bot "x" and "u" vector
 n=4
 
 #define the input multiset "X"
