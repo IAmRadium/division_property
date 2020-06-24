@@ -1,13 +1,15 @@
 from itertools import combinations
 
 #"n"  is the bit length of bot "x" and "u" vector
-n=4
+n=3
 
 #define the input multiset "X"
-X=['0000','0001','0010','0011','0100','0101','0110','0111','1000','1001','1010','1011','1100','1101','1110','1111',
+'''X=['0000','0001','0010','0011','0100','0101','0110','0111','1000','1001','1010','1011','1100','1101','1110','1111',
 '0000','0000','0000','0001','0010','0011','0100','0101','0110','0111']  
+'''
 
-#his is mul-set from y. todo's paper. #X=['0000','0011','0011','0011','0101','0110','1000','1011','1101','1110']
+#his is mul-set from y. todo's paper. #
+X=['000','001','010','011','100','101','110','111']
 #this fuction calculates the value xi^ui
 def xi_ui(xi,ui):
     if xi=='0' and ui=='0':
@@ -27,7 +29,7 @@ def pi_u_all(x,u):
         r=r*xi_ui(x[i],u[i])
     return r
 
-selected_bits_in_x = 4
+selected_bits_in_x = 3
 indexes=[i for i in range(n)]
 comb=combinations(indexes,selected_bits_in_x)
 #the following function is used when p, (p<n) number of bits are used of x vector of the Multiset
